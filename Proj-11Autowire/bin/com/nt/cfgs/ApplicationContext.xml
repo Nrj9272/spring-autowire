@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Dependency bean id configuration -->
+	<bean id="event2" class="com.nt.beans.Event"><!--  for ambiguity to add primary=true in the bean tag-->
+		<property name="games">
+			<array>
+				<value>Cricket</value>
+				<value>Football</value>
+				<value>Hockey</value>
+				<value>Golf</value>
+			</array>
+		</property>
+
+	</bean>
+	<!-- performs setter injection -->
+	<!-- all target class property names and dependent class bean ids must match -->
+	<!-- HERE THERE IS NO POSSIBILITITY OF GETTING AMBIGUITY ERROR -->
+	
+	<bean id="event" class="com.nt.beans.Event">
+		<property name="games">
+			<array>
+				<value>Wresteling</value>
+				<value>Hockey</value>
+				<value>Boxing</value>
+				<value>Kabaddi</value>
+			</array>
+		</property>
+
+	</bean>
+	
+
+
+	<bean id="trmnt" class="com.nt.beans.Tournament" autowire="byName">
+	
+	</bean>
+
+
+
+</beans>
